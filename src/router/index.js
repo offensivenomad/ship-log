@@ -1,30 +1,29 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
+import Vue from 'vue'
+import Router from 'vue-router'
+import LogCreate from './views/LogCreate.vue'
+import LogList from './views/LogList.vue'
+import LogShow from './views/LogShow.vue'
 
-Vue.use(VueRouter);
+Vue.use(Router)
 
-const routes = [
-  {
-    path: "/",
-    name: "Home",
-    component: Home
-  },
-  {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue")
-  }
-];
-
-const router = new VueRouter({
-  mode: "history",
-  base: process.env.BASE_URL,
-  routes
-});
-
-export default router;
+export default new Router({
+  mode: 'history',
+  routes: [
+    {
+      path: '/',
+      name: 'log-list',
+      component: LogList
+    },
+    {
+      path: '/log/create',
+      name: 'log-create',
+      component: LogCreate
+    },
+    {
+      path: '/log/:id',
+      name: 'log-show',
+      component: LogShow,
+      props: true
+    }
+  ]
+})

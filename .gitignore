@@ -1,7 +1,10 @@
 .DS_Store
 node_modules
 /dist
-
+/src/stormGlassApi.js
+/src/worldWeatherApi.js
+/src/services/apiKey.js
+.env
 
 # local env files
 .env.local
